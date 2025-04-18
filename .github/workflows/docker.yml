@@ -22,7 +22,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push image
+      - name: Build and push image and create container
         run: |
           docker build -t ankitpheaptrace/user-management-api .
           docker push ankitpheaptrace/user-management-api
+          docker compose up --build
