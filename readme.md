@@ -5,6 +5,7 @@
 ```bash
 docker-compose build
 docker-compose up
+````
 
 ## For homepage
 ````bash
