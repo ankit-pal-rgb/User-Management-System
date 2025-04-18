@@ -26,4 +26,9 @@ jobs:
         run: |
           docker build -t ankitpheaptrace/user-management-api .
           docker push ankitpheaptrace/user-management-api
-          docker compose up --build
+      
+      - name: Run Docker Container (for test/demo)
+        run: |
+          docker run -d --name user-container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/user-management-api:latest
+          sleep 10 
+          docker ps 
