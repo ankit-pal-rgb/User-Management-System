@@ -1,27 +1,20 @@
-version: '3.8'
-
+version: '4'
 services:
   mongodb:
-    image: mongo
+    image: mongo:latest
     container_name: mongodb
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-    volumes:
-      - mongo_data:/data/db
 
-  django-app:
+  web:
     build: .
     container_name: django-app
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
-    environment:
-      MONGO_URL: mongodb://admin:admin123@mongodb:27017
     depends_on:
       - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017
 
-volumes:
-  mongo_data:
 
