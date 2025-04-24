@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>Register New User</h2>
+    <form method="POST" action="/user-management-system/register" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <label>Profile Picture:</label>
+        <input type="file" name="profile_picture"><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

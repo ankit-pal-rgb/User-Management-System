@@ -1,6 +1,5 @@
 from pymongo import MongoClient
 import os
-mongo_uri = os.getenv("MONGO_URI", "mongodb://mongodb:27017")
-client = MongoClient(mongo_uri)
+client = MongoClient("mongodb://localhost:27017/")
 db = client["mydb"]
 users_collection=db["Users"]
