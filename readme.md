@@ -40,10 +40,12 @@ http://127.0.0.1:8000/user-management-system/user-add/
 ## For search filter
 ````bash
 http://127.0.0.1:8000/user-management-system/get-users?email=gmail
+````
 
 ## For Pagination
 ````bash
 http://127.0.0.1:8000/user-management-system/get-users?username=ankit&page=1&limit=2
+````
 
 ## Invite via email
 #### Methost=POST
