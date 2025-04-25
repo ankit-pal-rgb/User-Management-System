@@ -120,6 +120,20 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')  # emails saved here
+
+
+# EMAIL_HOST = 'live.smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'api'
+# EMAIL_HOST_PASSWORD = 'c0df3178730af85fbd80b81bdf69c073'
+# EMAIL_PORT = '587'
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# DEFAULT_FROM_EMAIL = 'api'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
