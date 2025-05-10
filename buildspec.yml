@@ -8,7 +8,8 @@ phases:
       - echo Installing Python dependencies...
       - pip install -r requirements.txt
       - echo Installing Docker...
-      - yum install -y docker
+      - apt-get update
+      - apt-get install -y docker.io
       - service docker start
       - docker --version  # Verify Docker installation
 
