@@ -7,14 +7,12 @@ phases:
     commands:
       - echo Installing Python dependencies...
       - pip install -r requirements.txt
-      - echo Installing Docker...
-      - apt-get update
-      - apt-get install -y docker.io
-      - service docker start
-      - docker --version  # Verify Docker installation
+      - docker --version  # Docker is pre-installed in privileged mode
 
   pre_build:
     commands:
+      - echo "AWS REGION - $AWS_REGION"
+      - echo "AWS Account ID -  $AWS_ACCOUNT_ID"
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY_NAME
