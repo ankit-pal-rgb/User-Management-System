@@ -22,7 +22,8 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:$IMAGE_TAG 
+      - ls
+      - docker build -t $REPOSITORY_URI .
       - echo Pushing the Docker image to ECR...
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Creating imagedefinitions.json for ECS deployment...
